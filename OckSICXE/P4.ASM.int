@@ -1,0 +1,24 @@
+0    00000    COPY       START      0          
+1    00000               EXTDEF     BUFFER,BUFEND,LENGTH
+2    00000               EXTREF     RDREC,WRREC
+3    00019    COUNT      EQU        25         
+4    00000    FIRST      STL        RETADR     
+5    00003    CLOOP      +JSUB      RDREC      
+6    00007               LDA        LENGTH     
+7    0000A               COMP       #0         
+8    0000D               JEQ        ENDFIL     
+9    00010               +JSUB      WRREC      
+10   00014               J          CLOOP      
+11   00017    ENDFIL     LDA        =C'EOF'    
+12   0001A               STA        BUFFER     
+13   0001D               LDA        #3         
+14   00020               STA        LENGTH     
+15   00023               +JSUB      WRREC      
+16   00027               J          @RETADR    
+17   0002A    RETADR     RESW       1          
+18   0002D    LENGTH     RESW       1          
+19   00030    BUFFER     RESB       COUNT+10   
+20   0003A    BUFEND     RESB       1          
+21   0000A    MAXLEN     EQU        BUFEND-BUFFER
+22   0003B               END        FIRST      
+23   0003B    *          =C'EOF'

@@ -1,0 +1,18 @@
+0    00000    PGRAM1     START      0          
+1    00000    FIRST      LDB        NUMB1      
+2    00003               STL        RETAD      
+3    00006               LDA        NUMB1      
+4    00009    LOOP       ADD        NUMB2      
+5    0000C               STA        ARRAY,X    
+6    0000F               TIX        LIMIT      
+7    00012               ADD        #1         
+8    00015               STA        NUMB3      
+9    00018               J          @RETAD     
+10   00200               EQU        512        
+12   0001B    RETAD      RESW       1          
+13   0001E    LIMIT      WORD       10         
+14   00021    ARRAY      RESB       1024       
+15   00421    NUMB1      WORD       5          
+16   00424    NUMB2      WORD       10         
+17   00427    NUMB3      RESW       1          
+18   0042A               END        FIRST      

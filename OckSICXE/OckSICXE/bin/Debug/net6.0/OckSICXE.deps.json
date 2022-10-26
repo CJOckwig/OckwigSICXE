@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "OckSICXE/1.0.0": {
+        "runtime": {
+          "OckSICXE.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "OckSICXE/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

@@ -1,0 +1,21 @@
+0    00000    PROGRAM3   START      0          
+1    00000               BASE       NUMB1      
+2    00000    FIRST      +LDB       NUMB1      
+3    00004               STL        RETADR     
+4    00007               CLEAR      X          
+5    00009               LDA        =C'123'    
+6    0000C               LDA        =C'ABC'    
+7    0000F               LDA        =C'123'    
+8    00012    LOOP       ADD        NUMB2      
+9    00015               STA        ARRAY,X    
+10   00018               TIX        LIMIT      
+11   0001B               +ADD       =X'01'     
+12   0001F               +STA       NUMB3      
+13   00023               J          @RETAD     
+14   00026    RETADR     RESW       1          
+15   00029    LIMIT      WORD       10         
+16   0002C    ARRAY      RESB       2048       
+17   0082C    NUMB1      WORD       5          
+18   0082F    NUMB2      WORD       10         
+19   00832    NUMB3      RESW       1          
+20   00835               END        FIRST      

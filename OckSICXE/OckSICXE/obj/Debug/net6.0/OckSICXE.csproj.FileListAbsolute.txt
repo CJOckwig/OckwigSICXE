@@ -1,0 +1,15 @@
+C:\Users\caleb\source\repos\OckSICXE\OckSICXE\bin\Debug\net6.0\OckSICXE.exe
+C:\Users\caleb\source\repos\OckSICXE\OckSICXE\bin\Debug\net6.0\OckSICXE.deps.json
+C:\Users\caleb\source\repos\OckSICXE\OckSICXE\bin\Debug\net6.0\OckSICXE.runtimeconfig.json
+C:\Users\caleb\source\repos\OckSICXE\OckSICXE\bin\Debug\net6.0\OckSICXE.dll
+C:\Users\caleb\source\repos\OckSICXE\OckSICXE\bin\Debug\net6.0\OckSICXE.pdb
+C:\Users\caleb\source\repos\OckSICXE\OckSICXE\obj\Debug\net6.0\OckSICXE.csproj.AssemblyReference.cache
+C:\Users\caleb\source\repos\OckSICXE\OckSICXE\obj\Debug\net6.0\OckSICXE.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\caleb\source\repos\OckSICXE\OckSICXE\obj\Debug\net6.0\OckSICXE.AssemblyInfoInputs.cache
+C:\Users\caleb\source\repos\OckSICXE\OckSICXE\obj\Debug\net6.0\OckSICXE.AssemblyInfo.cs
+C:\Users\caleb\source\repos\OckSICXE\OckSICXE\obj\Debug\net6.0\OckSICXE.csproj.CoreCompileInputs.cache
+C:\Users\caleb\source\repos\OckSICXE\OckSICXE\obj\Debug\net6.0\OckSICXE.dll
+C:\Users\caleb\source\repos\OckSICXE\OckSICXE\obj\Debug\net6.0\refint\OckSICXE.dll
+C:\Users\caleb\source\repos\OckSICXE\OckSICXE\obj\Debug\net6.0\OckSICXE.pdb
+C:\Users\caleb\source\repos\OckSICXE\OckSICXE\obj\Debug\net6.0\OckSICXE.genruntimeconfig.cache
+C:\Users\caleb\source\repos\OckSICXE\OckSICXE\obj\Debug\net6.0\ref\OckSICXE.dll
