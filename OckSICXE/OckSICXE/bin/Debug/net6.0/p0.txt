@@ -1,0 +1,16 @@
+1    00000    FIRS       LDB        NUMB1      6C2FFFFFFD9
+2    00003               STL        RETAD      182FFFFFFF1
+3    00006               LDA        NUMB1      42FFFFFFD3
+4    00009    LOO        ADD        NUMB2      1C2FFFFFFD0
+5    0000C               STA        ARRAY,X    10AFFFFFFEB
+6    0000F               TIX        LIMIT      302FFFFFFE5
+7    00012               ADD        #1         1B2FFFFFFC8
+8    00015               STA        NUMB3      102FFFFFFC4
+9    00018               J          @RETAD     3E2FFFFFFDC
+10   0001B    RETA       RESW       1          
+11   0001B    LIMI       WORD       10         
+12   0001E    ARRA       RESB       1024       
+13   0001E    NUMB       WORD       5          
+14   00021    NUMB       WORD       10         
+15   00024    NUMB       RESW       1          
+16   00024               END        FIRST      

@@ -25,18 +25,25 @@ namespace OckSICXE
         *********************************************************************
         *** DESCRIPTION : Evaluates all of the expressions in a given file.***
         ********************************************************************/
-        public static int EvalExpression(string Expression, out ArrayList LiteralTable, ArrayList LitTableIn, BST SymbolTable)
-        {
+        public static int EvalExpression(string Expression, out ArrayList LiteralTable, ArrayList LitTableIn, BST SymbolTable, out bool NBit, out bool IBit, out bool XBit)
+            
+            {
             string outputExpress = Expression;
+            
             string[] Symbols = { };
             int ExpValue = 0;
+            int.TryParse(Expression,out ExpValue);
             string value = "";
-            bool IndexBit = false, NBit = false, IBit = false, RFlag = false, Error = false;
+            XBit = false;
+            NBit = false; 
+            IBit = false; 
+            bool RFlag = false;
+            bool Error = false;
             if (Expression.Length > 2)
             {
                 if (Expression.Substring(Expression.Length - 2).Equals(",X"))
                 {
-                    IndexBit = true;
+                    XBit = true;
                     Expression = Expression.TrimEnd('X');
                     Expression = Expression.TrimEnd(',');
                 }
@@ -57,8 +64,18 @@ namespace OckSICXE
                             value += Convert.ToByte(charLit[i]).ToString("x2");
                             size++;
                         }
+                        ExpValue = size;
                         Literal Lit = new Literal(Expression, value, size, LitTableIn.Count, LitType);
-                        LitTableIn.Add(Lit); //adds if doesn't exist
+                        bool add = true;
+                        foreach (Literal L in LitTableIn)
+                        {
+                            if (L.Name == Lit.Name)
+                            {
+                                add = false;
+                            }
+                        }
+                        if (add)
+                            LitTableIn.Add(Lit);
                     }
                     else if (LitType == 'X' || LitType == 'x')
                     {
@@ -71,15 +88,25 @@ namespace OckSICXE
                             value += charLit[i];
                         }
                         int size = value.Length / 2;
+                        ExpValue = size;
                         Literal Lit = new(Expression, value, size, LitTableIn.Count, LitType);
-                        LitTableIn.Add(Lit);
+                        bool add = true;
+                        foreach(Literal L in LitTableIn)
+                        {
+                            if(L.Name == Lit.Name)
+                            {
+                                add = false;
+                            }
+                        }
+                        if(add)
+                            LitTableIn.Add(Lit);
                     }
 
                     break;
                 case 2:// indirect @ 
                     NBit = true;
                     IBit = false;
-                    Error = IndexBit;
+                    Error = XBit;
                     if (Error)
                     {
                         Console.WriteLine(outputExpress + " cannot use indirect + index register");
@@ -105,10 +132,10 @@ namespace OckSICXE
                 case 3://immediate addressing #
                     NBit = false;
                     IBit = true;
-                    Error = IndexBit;
+                    Error = XBit;
                     if (Error)
                     {
-                        Console.WriteLine(outputExpress + " cannot use immediate + index register");
+                        //Console.WriteLine(outputExpress + " cannot use immediate + index register");
                     }
                     else
                     {

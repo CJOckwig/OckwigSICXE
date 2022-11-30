@@ -1,0 +1,8 @@
+0    00000    PGRAM      START      0          
+10   00000    RETA       RESW       1          
+11   00000    LIMI       WORD       10         
+12   00003    ARRA       RESB       1024       
+13   00003    NUMB       WORD       5          
+14   00006    NUMB       WORD       10         
+15   00009    NUMB       RESW       1          
+16   00009               END        FIRST      
