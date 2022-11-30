@@ -328,7 +328,23 @@ internal class Program
                             Displacement = TargetAddress - NextInstruction;
                         }
                         mid = FileFormat.middleFormat(XBit, BBit, PBit, EBit);
-                        objectCodeFull = (objectCode-1).ToString("X") + mid.ToString("X") + Displacement.ToString("X");
+                        string disp = Displacement.ToString("X");
+                        int Buffer = 3;
+                        if(EBit)
+                        {
+                            Buffer = 5;
+                        }
+                        if(Displacement >=0)
+                        {
+                            while(disp.Length<Buffer)
+                            {
+                                disp = "0"+disp;
+                            }
+                        }else
+                        {
+                            disp = Displacement.ToString("X").Substring(Displacement.ToString("X").Length-Buffer);
+                        }
+                        objectCodeFull = (objectCode-1).ToString("X") + mid.ToString("X") + disp;
                         if (NewTextRecord)
                         {
                             TextRecord = "T^" + line[1] + "^" + TextRecord;//add size
@@ -341,6 +357,7 @@ internal class Program
                     {
 
                         TextRecord = objectCode.ToString("X");
+
                         //split the registers in expression. X is already trimmed out? maybe? No.
 
                         if (NewTextRecord)

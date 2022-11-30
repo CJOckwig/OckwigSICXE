@@ -1,11 +1,11 @@
-1    00000    FIRST      LDB        #ARRAY     6A213
+1    00000    FIRST      LDB        #ARRAY     6A2013
 2    00003               BASE       ARRAY      
 3    00003               STL        RETADR     172BC8
 4    00006               CLEAR      F          
 5    00008               LDT        #3000      762BAD
-6    0000B    LOOP       STA        ARRAY,X    FA8
+6    0000B    LOOP       STA        ARRAY,X    FA008
 7    0000E               ADDR       S,T        
-8    00010               JLT        LOOP       3B2FFFFFFF8
+8    00010               JLT        LOOP       3B2FF8
 9    00013               J          @RETADR    3D2BB8
 10   00016    ARRAY      RESW       1000       
 11   00BCE    RETADR     RESW       1          
