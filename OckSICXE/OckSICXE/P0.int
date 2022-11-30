@@ -1,0 +1,13 @@
+0    00000    PROG       START      0          
+1    00000    FIRST      LDB        #ARRAY     
+2    00003               BASE       ARRAY      
+3    00003               STL        RETADR     
+4    00006               CLEAR      F          
+5    00008               LDT        #3000      
+6    0000B    LOOP       STA        ARRAY,X    
+7    0000E               ADDR       S,T        
+8    00010               JLT        LOOP       
+9    00013               J          @RETADR    
+10   00016    ARRAY      RESW       1000       
+11   00BCE    RETADR     RESW       1          
+12   00BD1               END        FIRST      

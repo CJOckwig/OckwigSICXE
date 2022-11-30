@@ -328,7 +328,7 @@ internal class Program
                             Displacement = TargetAddress - NextInstruction;
                         }
                         mid = FileFormat.middleFormat(XBit, BBit, PBit, EBit);
-                        objectCodeFull = objectCode.ToString("X") + mid.ToString("X") + Displacement.ToString("X");
+                        objectCodeFull = (objectCode-1).ToString("X") + mid.ToString("X") + Displacement.ToString("X");
                         if (NewTextRecord)
                         {
                             TextRecord = "T^" + line[1] + "^" + TextRecord;//add size
@@ -402,10 +402,22 @@ internal class Program
                         Console.WriteLine(Lit.ToString());
                     }
                     break;
+                case 4: 
+                    foreach(string s in FileFormat.GetFileLines(path + intermediateFile + ".txt"))
+                    {
+                        Console.WriteLine(s);
+                    }
+                    break;
+                case 5:
+                    foreach(string s in FileFormat.GetFileLines(path + intermediateFile + ".obj"))
+                    {
+                        Console.WriteLine(s);
+                    }
+                break;
                 default:
                     break;
             }
-        } while (menuChoice != 4);
+        } while (menuChoice != 6);
 
     }
 }
