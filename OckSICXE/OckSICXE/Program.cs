@@ -267,6 +267,21 @@ internal class Program
                     if (line[OpcodeIndex].Equals("WORD"))
                     {
                         NextInstruction += 3;
+                        int val = ExVal.EvalExpression(line[4], out LiteralTable, LiteralTable, SymbolTable, out NBit, out IBit, out XBit);
+                        Console.WriteLine(val + "is the value of word");
+                        string Buffer = val.ToString("X");
+                        if(val>=0)
+                        {
+                            while(Buffer.Length<=6)
+                            {
+                                Buffer = " " + Buffer;
+                            }
+                        }else
+                        {
+                            Buffer = Buffer.Substring(Buffer.Length-6);
+                        }
+                        writerObj.WriteLine("T^"+ ProgramCounter + "^3^" + Buffer);
+
                         NewTextRecord = true;
 
                     }
@@ -347,7 +362,7 @@ internal class Program
                         {
                             while(disp.Length<Buffer)
                             {
-                                disp = "0"+disp;
+                                disp = "0" + disp;
                             }
                         }else
                         {
