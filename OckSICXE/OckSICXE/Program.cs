@@ -232,6 +232,8 @@ internal class Program
                 int textLength = 0;
                 NextInstruction = 0;
                 LinkedList<string> TextRecords = new LinkedList<string>();
+                LinkedList<string> DRecords = new LinkedList<string>();
+                string RRecords = "";
                 line = FileFormat.InterFileFormat(pass2Lines[0]);
                 writerObj.WriteLine("H^" + line[2] + "^" + line[4] + "^" + ProgramCounter);
 
@@ -294,10 +296,18 @@ internal class Program
                     }
                     else if (line[OpcodeIndex].Equals("EXTDEF"))
                     {
+                        string[] Symbols = line[4].Split(",");
                         NewTextRecord = true;
                     }
                     else if (line[OpcodeIndex].Equals("EXTREF"))
                     {
+                        string[] Symbols = line[4].Split(",");
+                        for(int ik = 0; ik < Symbols.Length;i++)
+                        {
+                            RRecords = RRecords +"^"+Symbols[ik];
+                        }
+                        RRecords = "R^"+RRecords;
+                        writerObj.WriteLine(RRecords);
                         NewTextRecord = true;
                     }
                     else if (line[OpcodeIndex].Equals("END"))
@@ -324,7 +334,6 @@ internal class Program
                         {
                             PBit = true;
                             BBit = false;
-                            Console.WriteLine(TargetAddress + "-" + NextInstruction);
                             Displacement = TargetAddress - NextInstruction;
                         }
                         mid = FileFormat.middleFormat(XBit, BBit, PBit, EBit);
@@ -347,7 +356,7 @@ internal class Program
                         objectCodeFull = (objectCode-1).ToString("X") + mid.ToString("X") + disp;
                         if (NewTextRecord)
                         {
-                            TextRecord = "T^" + line[1] + "^" + TextRecord;//add size
+                            TextRecord = "T^" + line[1] + "^"+ FormatType+ TextRecord;//add size
                             writerObj.WriteLine(TextRecord);
                             TextRecords.AddLast(objectCodeFull);
                             TextRecord = "^" + objectCodeFull;

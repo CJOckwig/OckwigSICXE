@@ -1,0 +1,9 @@
+0    00000    PROG       START      0          
+1    00000               EXTDEF     ONE,THREE  
+2    00000               EXTREF     TWO,FOUR   
+3    00000    FIRST      +LDF       TWO        
+4    00004               +ADDF      THREE,X    
+5    00008               +WD        FOUR+8     
+6    0000C    ONE        WORD       102        
+7    0000F    THREE      WORD       ONE-TWO    
+8    00012               END        FIRST      
